@@ -10,8 +10,10 @@ for (let i=0; i<x; i++){
 }
 
 for (let i=0; i<players.length; i++){
-    document.write('Player ' + players + ': ' + players[i] + '<br>');
+    document.write('Player ' + (i*1+1) + ': ' + players[i] + '<br>');
 }
+
+players[i] = '<span style="color:red">' + players[i] + '</span>';
 
 function rollDice() {
     var die1 = document.getElementById("die1");

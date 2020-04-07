@@ -8,6 +8,13 @@ body h1 {
 }
 
 .button {
-    display: flex;
-    justify-content: center;
+    display: block;
+    margin: auto;
+    padding: 10px;
+    width: 200px;
+	height: 100px;
+	background: #F5F5F5;
+	border: #999 3px solid;
+	font-size: 35px;
+	text-align: center;
 }

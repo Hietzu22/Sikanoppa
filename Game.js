@@ -1,12 +1,15 @@
 var score = 0;
-var gamers = document.getElementById("gamers")
 
 let x = prompt('How many players are playing?');
 
 let players = [];
+let roundScore = 0
+let turn = 0;
 
 for (let i=0; i<x; i++){
-    players.push(prompt("Give player "+ (i*1+1) + "'s name"));
+    let player = { name: "", points: 0 }
+    player.name = prompt("Give player "+ (i*1+1) + "'s name");
+    players.push(player);
 }
 
 let goal = prompt('How many points to win the game?');
@@ -31,40 +34,58 @@ function rollDice() {
         status.innerHTML += " DOUBLES! You get "+doubles+" points!";
         score = score + doubles;
     } else if (d1 == 1 || d2 == 1) {
-        status = turnOver();
         score = 0;
+        status = turnOver();
     } else  {
         status.innerHTML = "You rolled "+diceTotal+".";
         score = score + diceTotal;
-    } if (goal <= score) {
+    } if (score >= goal) {
         status = gameWon();
     }
     gameScore()
 }
 
-for (let i=0; i<players.length; i++){
-    document.write('Player ' + (i*1+1) + ': ' + players[i] + ' Points: ' + score + '<br>');
-}
 
 
 function gameScore() {
     var gameScore = document.getElementById("gameScore");
     gameScore.innerHTML = "Score: " + score;
-
 }
 
 function endTurn() {
     var status = document.getElementById("status");
     status.innerHTML = "You ended your turn. You got " + score + " points!";
-    score = 0;
+    endRound()
+    printScore();
 }
 
 function turnOver() {
     var status = document.getElementById("status");
     status.innerHTML = "Turn over! You got 0 points this round.";
+    endRound()
+    printScore()
 }
 
 function gameWon() {
     var status = document.getElementById("status");
     status.innerHTML = "You Win!";
+    printScore()
+}
+
+function endRound() {
+    players[turn].points = score;
+    turn++;
+    if (turn >=players.length) {
+        turn = 0;
+    }
+    score = 0;
+}
+
+function printScore() {
+    let html = "";
+    for(let i in players){
+        let x = Number(i)+1;
+        html += `Player ${x} ${players[i].name}: points ${players[i].points} <br>`;
+    }
+    document.getElementById('players').innerHTML = html;
 }

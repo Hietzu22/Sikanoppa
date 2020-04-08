@@ -6,14 +6,14 @@
     <link rel="stylesheet" href="style.css">
     <title>Dice Game</title>
 </head>
-<body>
+<body onload="printScore()">
     <div id="die1" class="dice">0</div>
     <div id="die2" class="dice">0</div>
     <button class="button" onclick="rollDice()">Roll Dice</button>
     <button class="button" onclick="endTurn()">End Turn</button>
     <h2 id="status"></h2>
     <h2 id="gameScore"></h2>
-    <h3 id="gamers"></h3>
+    <h3 id="players"></h3>
 
     <script src="Game.js"></script>
 </body>

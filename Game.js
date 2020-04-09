@@ -43,9 +43,6 @@ function rollDice() {
         status = gameWon();
     }
     gameScore()
-
-    document.images[dice].src=eval("face"+d1+".src")
-    document.images[dice].src=eval("face"+d2+".src")
 }
 
 

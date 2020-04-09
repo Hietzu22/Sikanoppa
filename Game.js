@@ -43,6 +43,9 @@ function rollDice() {
         status = gameWon();
     }
     gameScore()
+
+    document.images[dice].src=eval("face"+d1+".src")
+    document.images[dice].src=eval("face"+d2+".src")
 }
 
 
@@ -85,7 +88,7 @@ function printScore() {
     let html = "";
     for(let i in players){
         let x = Number(i)+1;
-        html += `Player ${x} ${players[i].name}: points ${players[i].points} <br>`;
+        html += `Player ${x}: ${players[i].name}  points: ${players[i].points} <br>`;
     }
     document.getElementById('players').innerHTML = html;
 }

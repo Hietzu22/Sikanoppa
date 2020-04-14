@@ -45,8 +45,6 @@ function rollDice() {
     gameScore()
 }
 
-
-
 function gameScore() {
     var gameScore = document.getElementById("gameScore");
     gameScore.innerHTML = "Score: " + score;

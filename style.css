@@ -1,10 +1,10 @@
 * {
 	font-family: 'Source Sans Pro', sans-serif;
+	background-image: url("Photos/Background.jpg");
 }
 
 body {
 	color: white;
-	background-image: url("Photos/Background.jpg");
 }
 
 body h2 {

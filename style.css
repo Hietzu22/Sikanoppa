@@ -2,9 +2,14 @@
 	font-family: 'Source Sans Pro', sans-serif;
 }
 
+body {
+	color: white;
+	background-image: url("Photos/Background.jpg");
+}
+
 body h2 {
 	clear: left;
-	color: black;
+	color: white;
 	font-size: 24px;
 }
 
@@ -28,4 +33,13 @@ div.dice {
 	margin: 5px;
 	background-image: url(photos/RollBG.png);
 	color: white;
+}
+
+.dice {
+	float: left;
+	width: 62px;
+	height: 62px;
+	font-size: 24px;
+	text-align: center;
+	margin: 5px;
 }

@@ -21,8 +21,8 @@ function rollDice() {
     var d1 = Math.floor(Math.random() * 6) + 1;
     var d2 = Math.floor(Math.random() * 6) + 1;
     var diceTotal = d1 + d2;
-    die1.innerHTML = d1;
-    die2.innerHTML = d2;
+    document.getElementById("diceImg1").src = "photos/Die"+d1+".png"
+    document.getElementById("diceImg2").src = "photos/Die"+d2+".png"
     var snakeEyes = 25;
     var doubles = diceTotal * 2;
 
@@ -71,7 +71,7 @@ function gameWon() {
 }
 
 function endRound() {
-    players[turn].points = score;
+    players[turn].points += score;
     turn++;
     if (turn >=players.length) {
         turn = 0;

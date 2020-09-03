@@ -1,6 +1,6 @@
 var score = 0;
 
-let x = prompt('How many players are playing?');
+let x = prompt('Kuinka monta pelaajaa pelaa?');
 
 let players = [];
 let roundScore = 0
@@ -8,11 +8,11 @@ let turn = 0;
 
 for (let i=0; i<x; i++){
     let player = { name: "", points: 0 }
-    player.name = prompt("Give player "+ (i*1+1) + "'s name");
+    player.name = prompt("Anna Pelaaja "+ (i*1+1) + " Nimi");
     players.push(player);
 }
 
-let goal = prompt('How many points to win the game?');
+let goal = prompt('Kuinka moneen pisteeseen pelataan?');
 
 function rollDice() {
     var die1 = document.getElementById("die1");
@@ -27,17 +27,17 @@ function rollDice() {
     var doubles = diceTotal * 2;
 
     if (d1 == 1 && d2 == 1) {
-        status.innerHTML = "Snake eyes! You get "+snakeEyes+" points!";
+        status.innerHTML = "Tuplaykköset. "+snakeEyes+" pistettä!";
         score = score + 25;
     } else if (d1 == d2) {
-        status.innerHTML = "You rolled "+diceTotal+".";
-        status.innerHTML += " DOUBLES! You get "+doubles+" points!";
+        status.innerHTML = "Heitit "+diceTotal+".";
+        status.innerHTML += " Tuplat. Saat "+doubles+" pistettä!";
         score = score + doubles;
     } else if (d1 == 1 || d2 == 1) {
         score = 0;
         status = turnOver();
     } else  {
-        status.innerHTML = "You rolled "+diceTotal+".";
+        status.innerHTML = "Heitit "+diceTotal+".";
         score = score + diceTotal;
     } if (score >= goal) {
         status = gameWon();
@@ -47,26 +47,26 @@ function rollDice() {
 
 function gameScore() {
     var gameScore = document.getElementById("gameScore");
-    gameScore.innerHTML = "Score: " + score;
+    gameScore.innerHTML = "Pisteet: " + score;
 }
 
 function endTurn() {
     var status = document.getElementById("status");
-    status.innerHTML = "You ended your turn. You got " + score + " points!";
+    status.innerHTML = "Lopetit vuorosi. Sait " + score + " Pistettä!";
     endRound()
     printScore();
 }
 
 function turnOver() {
     var status = document.getElementById("status");
-    status.innerHTML = "Turn over! You got 0 points this round.";
+    status.innerHTML = "Vuoro loppui. Sait 0 pistettä.";
     endRound()
     printScore()
 }
 
 function gameWon() {
     var status = document.getElementById("status");
-    status.innerHTML = "You Win!";
+    status.innerHTML = "Voitit!";
     printScore()
 }
 
